@@ -6,7 +6,8 @@ Note: You may not slant the container.
 import java.util.*;
 public class maxArea{
 	public static void main(String[] args) {
-		int[] height = new int[5];
+		int[] height = new int[]{1,2,3,4,5};
+		System.out.println("I love Ran!");
 		System.out.println(maxArea(height));
 	}
 	public static int maxArea(int[] height){
