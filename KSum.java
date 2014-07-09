@@ -5,8 +5,9 @@ K Sum
 import java.util.*;
 public class KSum{
 	public static void main(String[] args) {
-		int[] num = {-1,-1,-1,2,0,1,1,3};
-		System.out.println(fourSum(num));
+		int[] num = {-5,-4,-3,-2, 1, 3,3,5};
+		System.out.println(fourSum(num,-11));
+		//System.out.println(findSumFromSortArray(num,0,2,-2));
 	}
 
 	public static List<List<Integer>> findSumFromSortArray(int[] num, int bg, int count, int target){
@@ -14,16 +15,18 @@ public class KSum{
 		HashSet<Integer> visited = new HashSet<Integer>();
 		if(count == 2){
            int i = bg, j = num.length - 1;
+
            while(i < j){
            	int sum = num[i] + num[j];
            	if(sum == target && !visited.contains(num[i]) 
            	   && !visited.contains(num[j])){
            	   	List<Integer> tp = new ArrayList<Integer>(Arrays.asList(num[i],num[j]));
                  res.add(tp);
+                 visited.add(num[i]);
+                 visited.add(num[j]); 
                  i++;
                  j--;
-                 visited.add(num[i]);
-                 visited.add(num[j]);               
+              
            	}else if (sum < target)
            	   i++;
            	else
@@ -31,7 +34,9 @@ public class KSum{
            }
 
 		}else{
-              for(int i = bg; i < num.length && num[i] < target; ++i){
+
+              for(int i = bg; i < num.length; ++i){
+
               	if(visited.contains(num[i]))
               		continue;
               	visited.add(num[i]);
@@ -41,6 +46,7 @@ public class KSum{
               			sb.add(0,num[i]);
 
               		res.addAll(subRes);
+
               	}
               }
 		}
@@ -48,8 +54,8 @@ public class KSum{
 		return res;
 	}
 
-	public static List<List<Integer>> fourSum(int[] num){
+	public static List<List<Integer>> fourSum(int[] num,int target){
 		Arrays.sort(num);
-		return findSumFromSortArray(num,0, 4, 0);
+		return findSumFromSortArray(num,0, 4, target);
 	}
 }

@@ -10,6 +10,14 @@ public class threeSumClosest{
 	public static void main(String[] args) {
 		int[] num = {1,2,3,4,5};
 		System.out.println(threeSumC(num,2));
+		static int[] a ={1, 2};
+		System.out.println(a[0]);
+		test(a);
+		System.out.println(a[0]);
+		final int[] b ={1,2};
+		System.out.println(b[0]);
+		test(b);
+		System.out.println(b[0]);		
 	}
 	public static int threeSumC(int[] num, int target){
 		int res = 0;
@@ -37,5 +45,9 @@ public class threeSumClosest{
 			}
 		}
 		return res;
+	}
+	public static void test(int[] a){
+		a[0] = 4;
+		return;
 	}
 }
