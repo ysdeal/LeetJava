@@ -14,7 +14,7 @@ public class twoSum{
 	public int[] twosum(int[] numbers, int target){
 		int[] res = new int[2];
 		HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
-		for(int i : numbers){
+		for(int i = 0; i < numbers.length; ++i){
 			if(map.containsKey(numbers[i])){
 				int ind = map.get(numbers[i]);
 				res[0] = ind + 1;
@@ -26,7 +26,7 @@ public class twoSum{
 		return res;
 	}
 	public static void main (String[] args){
-		int[] numbers ={1,2,3,4,7,5,6};
+		int[] numbers ={10,2,3,4,7,5,6};
 		int target = 10;
 		twoSum t = new twoSum();
         int[] vec = t.twosum(numbers,target);
