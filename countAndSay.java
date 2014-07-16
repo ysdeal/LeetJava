@@ -24,12 +24,9 @@ public class countAndSay{
 		for(int p = 0; p < pre.length();){
 			count = 1;
 			char tp = pre.charAt(p);
-			while(p+1 < pre.length() && tp == pre.charAt(p+1)){
+			while((++p) < pre.length() && tp == pre.charAt(p))
 				count ++;
-				p++;
-			}
             res += Integer.toString(count) + tp;
-            p ++;
 		}
 		return res;
 	}
